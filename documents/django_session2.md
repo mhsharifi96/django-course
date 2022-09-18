@@ -74,6 +74,7 @@ DoesNotExist: Reporter matching query does not exist.
 >>> r.delete()
 ```
 
+-------------
 
 ### step 2 :
 ## CRUD 
@@ -100,6 +101,8 @@ delete instance [reference](https://docs.djangoproject.com/en/4.1/topics/db/quer
 ```
 ```
 
+----------
+
 ### step 3
 [Field options](https://docs.djangoproject.com/en/4.1/ref/models/fields/#field-options)
 
@@ -118,6 +121,8 @@ Q:what is difference between `blank` and `null` ?\
 answer : 
 ```
 ```
+
+----------------
 
 
 ### step 4
@@ -154,6 +159,10 @@ Q:what is `SlugField`?\
 answer : 
 ```
 ```
+
+--------------
+
+
 
 ### step 5
 making query
