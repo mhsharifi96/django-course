@@ -90,7 +90,7 @@ Congratulations! the server running, check this url` http://127.0.0.1:8000/`
 ### step 2.2
 run  command : `python manage.py migrate`
 
-Q : Why should we implement this?\
+Q : Why should we run this?\
 answer : 
 ```
 ```
@@ -135,7 +135,7 @@ Now, open a Web browser and go to “/admin/” on your local domain,you should 
 
 
 ### step 5
-your sample app(e.x blog), `models.py` file, you can create model like this 
+your sample app(e.x blog), `models.py` file, you can create custom model like this 
 
 
 ```
