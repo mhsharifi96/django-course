@@ -11,7 +11,7 @@ answer :
 -----
 
 
-Q : What is MVT ? [reference](https://www.geeksforgeeks.org/django-project-mvt-structure/)
+Q : What is MVT ? [reference](https://www.geeksforgeeks.org/django-project-mvt-structure/)\
 answer : 
 ```
 ```

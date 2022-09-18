@@ -2,6 +2,7 @@
 
 ### step 1
 run `python manage.py shell `
+[reference](https://docs.djangoproject.com/en/4.1/ref/django-admin/#shell)
 ```
 # Import the models we created from our "blog" app
 >>> from blog.models import Article, Reporter
@@ -193,7 +194,7 @@ class Entry(models.Model):
 ```
 Next, run `migrate` and `makemigrations` command. and follow this [link](https://docs.djangoproject.com/en/4.1/topics/db/queries/).
 
-important note you should learn in this document.
+important notes that you should learn in this document.
 * Create and saving new instance.
 * deleteing instance.
 * Retrieving objects
