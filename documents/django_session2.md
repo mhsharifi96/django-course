@@ -238,4 +238,7 @@ NOTE : change name  Users table to Customer
 
 
 
-  
+READ : DJANGO FOR BIGGINER book,  chapter 3 (page 34 - 45)
+
+
+date : 9/18/2022

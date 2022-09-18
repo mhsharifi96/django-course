@@ -20,8 +20,9 @@ Q : What is difference between MVC and MVT architecture?\
  answer : 
 ```
 ```
+---- 
 ### step 1
-setup environment
+setup python environment
 ```
 ```
 ### step 1.1 
@@ -32,7 +33,7 @@ installation
     # check which version installed :
     python -m django --version
 ```
-
+------
 ### step 2
 
 create project 
@@ -89,8 +90,12 @@ Congratulations! the server running, check this url` http://127.0.0.1:8000/`
 ### step 2.2
 run  command : `python manage.py migrate`
 
-Why should we implement this?
+Q : Why should we implement this?\
+answer : 
+```
+```
 
+-----------------
 ### step 3
 CREATE APP 
 ```
