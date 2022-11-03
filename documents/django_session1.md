@@ -44,7 +44,7 @@ e.x : django-admin startproject maktabSite
 Let’s look at what startproject created:
 
 ```
-mysite/
+maktabSite/
     manage.py  #A command-line utility that lets you interact with this Django project in various ways
     maktabSite/
         __init__.py
