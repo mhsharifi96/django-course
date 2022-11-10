@@ -17,8 +17,7 @@ please follow below link, OR search about title in google :)
 ## Text Reference
 
 ### Django Project 
-* [form](https://docs.djangoproject.com/en/4.1/topics/forms/)
-* [template tags](https://docs.djangoproject.com/en/4.0/ref/templates/builtins/)
+* [session](https://docs.djangoproject.com/en/4.1/topics/http/sessions/)
 
 
 
