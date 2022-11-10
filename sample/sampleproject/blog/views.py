@@ -7,17 +7,19 @@ from .sample_json import single_post , multi_posts
 # request : https://docs.djangoproject.com/en/4.1/ref/request-response/
 
 def first_view(request):
-    return HttpResponse('<h1>this is first view</h1>')
+    return HttpResponse('<h1>this is first view hi </h1>')
 
 
 def second_view(request):
+    # return 'str'
     return HttpResponse('this is second view')
 
 
 def third_view(request):
     # key value parameter
     # e.x : use search  => /search?q=maktab
-    name = request.GET['name']
+    # name = request.GET['name']
+    name = request.GET.get('q','maktab sharif')
     print(name)
     return HttpResponse(f'hello , {name} , welcome to my site ')
 
@@ -26,13 +28,14 @@ def fourth_view(request,pk,title):
     # path parameter
     # e.x : use blog detail => blog/post/10 OR blog/post/title
 
-    return HttpResponse(f'this is post {pk}')
+    return HttpResponse(f'this is post {pk} - {title}')
 
 
 
 def sample_html_view(request):
     # name = request.GET['name']
-    template = """<html>
+    name = request.GET.get('name','maktab sharif')
+    template = f"""<html>
         <body>
             <h1>My First Heading</h1>
             <p>My first paragraph.</p>
@@ -45,7 +48,7 @@ def sample_html_view(request):
 
 
 def sample_html_template_view(request):
-    # first in app dir , create templates folder
+    # first in app dir<blog> , create templates folder
     # second, import render form django.shortcuts
     # templates configurations : https://docs.djangoproject.com/en/4.1/topics/templates/#support-for-template-engines
     return render(request,'sample.html')
@@ -94,7 +97,7 @@ def post_list (request):
     context = multi_posts
 
     # return render(request,'post/list.html',context)
-    return render(request,'post/list_link.html',context)
+    return render(request,'post/list.html',context)
 
 
 def template_inheritance(request):

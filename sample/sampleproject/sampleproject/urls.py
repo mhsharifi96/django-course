@@ -19,11 +19,12 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-# from blog import views
+from blog import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('',views.first_view),
-    # path('second',views.second_view)
+    # path('second',views.second_view),
     # remove two line and add inclue URLconf
     path('blog/',include('blog.urls'))
 

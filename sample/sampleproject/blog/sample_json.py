@@ -1,6 +1,6 @@
 
 single_post = {
-        'title':'detail post',
+        'title':'detail post !',
         'text':'this is a sample text for showing on the templates :)',
         'author':{
             'first_name':'MH',
