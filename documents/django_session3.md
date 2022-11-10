@@ -5,7 +5,7 @@ In this session, we talk about views and templates, and how work with them.
 
 `*` title, means this subject is required and you must read it.
 
-## Videos *
+## Videos Reference *
 
 [link](https://www.dj4e.com/lessons/django_views)
 * URL Routing in Django
@@ -17,7 +17,7 @@ In this session, we talk about views and templates, and how work with them.
 * Reversing Django URLs
 
 
-## Text
+## Text Reference
 
 ### Django Project 
 * [views](https://docs.djangoproject.com/en/4.1/topics/http/views/)
