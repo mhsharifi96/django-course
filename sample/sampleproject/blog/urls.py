@@ -10,7 +10,7 @@ urlpatterns = [
 
 
     path('post/<int:pk>',views.PostDetailView.as_view(),name='single-post'),
-    path('post-detail/<int:pk>',views.PostDetailView.as_view(),name='single-post'),
+    # path('post-detail/<int:pk>',views.PostDetailView.as_view(),name='single-post'),
 
 
 

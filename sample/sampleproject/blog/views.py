@@ -1,6 +1,8 @@
 from django.shortcuts import render,get_object_or_404
 from django.views.generic import TemplateView,ListView,DetailView
 from django.views import View
+from django.http import Http404
+
 
 from .models import Post
 
@@ -21,25 +23,30 @@ class PostsView(View):
         return render(request,'main.html',context)
 
 
-# class PostDetailView(View):
+class PostDetailView(View):
 
-#     def get(self,request,*args, **kwargs):
-#         # get one post
-#         pk = kwargs['pk']
-#         print(kwargs)
-#         post = Post.objects.get(pk=pk)  # or : get_object_or_404(Post,pk=pk)
+    def get(self,request,*args, **kwargs):
+        # get one post
+        pk = kwargs['pk']
+        print(kwargs)
+        try:    
+            post = Post.objects.get(pk=pk)  # or
+        except Post.DoesNotExist:
+            # post = {}
+            raise Http404("No MyModel matches the given query.")
+        # post = get_object_or_404(Post,pk=pk)
 
-#         context = {'post':post}
-#         return render(request,'single-post.html',context)
+        context = {'post':post}
+        return render(request,'single-post.html',context)
 
 
 # class PostDetailView(DetailView):
 #     model = Post
 
-class PostDetailView(DetailView):
-    model = Post
-    template_name = 'single-post.html'
-    context_object_name = 'post'
+# class PostDetailView(DetailView):
+#     model = Post
+#     template_name = 'single-post.html'
+#     context_object_name = 'post'
 
 
 class PostListView(ListView):

@@ -25,7 +25,7 @@ class Category(models.Model):
     title = models.CharField(max_length=20)
     subtitle = models.CharField(max_length=20)
     slug = models.SlugField()
-    thumbnail = models.ImageField(upload_to='images/category/%Y/%m/%d',blank=True,null=True)
+    # thumbnail = models.ImageField(upload_to='images/category/%Y/%m/%d',blank=True,null=True)
 
     def __str__(self):
         return self.title
@@ -38,7 +38,7 @@ class Post(models.Model):
     timestamp = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
-    thumbnail = models.ImageField(upload_to='images/posts/%Y/%m/%d') #upload_to='images/posts/%Y/%m/%d'
+    thumbnail = models.ImageField(upload_to='images/posts/%Y/%m/%d',null=True,blank=True) #upload_to='images/posts/%Y/%m/%d'
     categories = models.ManyToManyField(Category,blank=True,null=True)
     featured = models.BooleanField()
     STATUS  = [('en','enable'),('de','disable'),('da','draft')]
