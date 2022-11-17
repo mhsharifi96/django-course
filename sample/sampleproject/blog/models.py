@@ -68,8 +68,6 @@ class Comment(models.Model):
     def __str__(self) -> str:
         return self.title
 
-
-
     class Meta : 
         db_table = "comment"
         verbose_name = "comment"

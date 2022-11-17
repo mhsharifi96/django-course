@@ -9,9 +9,32 @@ from .models import Comment,Category
 class commentForm(forms.Form):
     email = forms.EmailField(max_length=254)
     title = forms.CharField(max_length=254)
-    content = forms.CharField(max_length=1000) #widget=forms.Textarea
+    content = forms.CharField(max_length=1000,widget=forms.Textarea) #widget=forms.Textarea
     # name = forms.CharField( max_length=254, required=False,widget=forms.TextInput(attrs={'size': 10, 'title': 'Your name'}))
-    password = forms.CharField(max_length=255 , widget=forms.PasswordInput())
+    # password = forms.CharField(max_length=255 , widget=forms.PasswordInput())
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 class SimpleForm(forms.Form):
@@ -42,9 +65,9 @@ class CommentModelForm(forms.ModelForm):
             'title':_('تایتل'),
             'content':'محتوا',
         }
-        # widgets = {
-        #     'title': Textarea(attrs={'cols': 80, 'rows': 20}),
-        # }
+        widgets = {
+            'content': forms.Textarea(attrs={'cols': 20, 'rows': 10}),
+        }
 
 
 

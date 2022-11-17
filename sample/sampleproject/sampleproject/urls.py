@@ -25,8 +25,8 @@ urlpatterns = [
     # path('',views.first_view),
     # path('second',views.second_view)
     # remove two line and add inclue URLconf
-    path('blog/',include('blog.urls'))
-
+    path('blog/',include('blog.urls')),
+    path('shop/',include('shop.urls')),
 ]
 
 if settings.DEBUG:

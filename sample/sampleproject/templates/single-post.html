@@ -63,7 +63,7 @@
               {% endif %} 
             </div><!-- End Comments -->
 
-            <!-- ======= Comments Form ======= -->
+            <!-- ======= Comments Form version (1,2) ======= -->
             {% comment %} <div class="row justify-content-center mt-5">
              
               <form action="{% url 'blog:single-post' post.id %}" method="post">
@@ -94,14 +94,14 @@
             <!-- End Comments Form -->
 
 
-            <!-- ======= Django Comments Form ======= -->
-            <form action="{% url 'blog:single-post' post.id %}" method="post">
+            <!-- ======= Django Comments Form  (version 3,4,5) ======= -->
+             <form action="{% url 'blog:single-post' post.id %}" method="post">
               {% csrf_token %}
               {{ form.as_p }}
               <div class="col-12">
                 <input type="submit" class="btn btn-primary" value="Post comment">
               </div>
-            </form>
+            </form> 
             <!-- ======= End Django Comments Form ======= -->
 
           </div>

@@ -23,12 +23,13 @@ class PostsView(View):
         # posts = Post.objects.filter(title__startswith='s')
         posts = Post.objects.all()
         category = Category.objects.all()
+        
         context = {'posts':posts,'category':category}
         return render(request,'main.html',context)
     
 
-# class PostDetailView(DetailView):
-#     model = Post
+class PostDetailView(DetailView):
+    model = Post
 #     template_name = 'single-post.html'
 #     context_object_name = 'post'
 
@@ -53,18 +54,18 @@ class PostListView(ListView):
 # Post method and form Django
 
 #version 1
-def post_detail(request,pk):
+# def post_detail(request,pk):
 
-    post = get_object_or_404(Post,pk=pk)
+#     post = get_object_or_404(Post,pk=pk)
 
-    comments = Comment.objects.all() 
+#     comments = Comment.objects.all() 
 
-    context = {
-        'post':post,
-        'comments':comments
-    }
+#     context = {
+#         'post':post,
+#         'comments':comments
+#     }
 
-    return render(request,'single-post.html',context)
+#     return render(request,'single-post.html',context)
 
 # version 2
 # def post_detail(request,pk):
@@ -121,9 +122,10 @@ def post_detail(request,pk):
 # #version4  - add forms     
 # from .forms import commentForm
 # class PostDetailView(View):
+    
 #     def get(self,request,*args, **kwargs):
 #         post = get_object_or_404(Post,pk=kwargs['pk'])
-#         comments = Comment.objects.all() 
+#         comments = Comment.objects.filter(pk = kwargs['pk']) 
 #         form = commentForm()
 #         context= {
 #             'post':post,
@@ -133,8 +135,7 @@ def post_detail(request,pk):
 #         return render(request,'single-post.html',context)
 
 #     def post(self,request,*args, **kwargs):
-#         print(request.POST)
-#         print('email :  ',request.POST.get('email',None))
+      
 #         post = get_object_or_404(Post,pk=kwargs['pk'])
 #         comments = Comment.objects.all() 
 #         # save comment 
@@ -160,33 +161,33 @@ def post_detail(request,pk):
 #         return render(request,'single-post.html',context)
 
 #version5  - add Modelforms     
-# from .forms import CommentModelForm
-# class PostDetailView(View):
-#     context = {}
-#     def get(self,request,*args, **kwargs):
-#         self.context['post'] = get_object_or_404(Post,pk=kwargs['pk'])
-#         self.context['comments'] = Comment.objects.all() 
-#         self.context['form'] = CommentModelForm()
+from .forms import CommentModelForm
+class PostDetailView(View):
+    context = {}
+    def get(self,request,*args, **kwargs):
+        self.context['post'] = get_object_or_404(Post,pk=kwargs['pk'])
+        self.context['comments'] = Comment.objects.all() 
+        self.context['form'] = CommentModelForm()
         
-#         return render(request,'single-post.html',self.context)
+        return render(request,'single-post.html',self.context)
 
-#     def post(self,request,*args, **kwargs):
+    def post(self,request,*args, **kwargs):
        
-#         self.context['post'] = post = get_object_or_404(Post,pk=kwargs['pk'])
-#         self.context['comments'] = Comment.objects.all() 
-#         # save comment 
-#         self.context['comments'] = form = CommentModelForm(request.POST)
+        self.context['post'] = post = get_object_or_404(Post,pk=kwargs['pk'])
+        self.context['comments'] = Comment.objects.all() 
+        # save comment 
+        self.context['comments'] = form = CommentModelForm(request.POST)
                 
-#         if form.is_valid():
-#             print('form_is valid')
-#             comment_form = form.save(commit=False)
-#             # comment.post_id = kwargs['pk']
-#             comment_form.post = post
-#             comment_form.save()
+        if form.is_valid():
+            print('form_is valid')
+            comment_form = form.save(commit=False)
+            # comment_form.post_id = kwargs['pk']
+            comment_form.post = post
+            comment_form.save()
             
-#             return redirect(reverse('blog:single-post',args=[kwargs['pk']]))
+            return redirect(reverse('blog:single-post',args=[kwargs['pk']]))
         
-#         return render(request,'single-post.html',self.context)
+        return render(request,'single-post.html',self.context)
 
 
 
