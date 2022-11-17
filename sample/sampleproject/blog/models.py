@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 # from django.contrib.auth import get_user_model
 
 
@@ -27,6 +29,9 @@ class Category(models.Model):
     slug = models.SlugField()
     # thumbnail = models.ImageField(upload_to='images/category/%Y/%m/%d',blank=True,null=True)
 
+    # def get_absolute_url(self): # new
+    #     return reverse('blog:category')
+
     def __str__(self):
         return self.title
 
@@ -48,6 +53,26 @@ class Post(models.Model):
     def __str__(self):
         return self.title   
 
-
-
 # https://stackoverflow.com/questions/8609192/what-is-the-difference-between-null-true-and-blank-true-in-django
+
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    email = models.EmailField(max_length=254)
+    title  = models.CharField(max_length=254)
+    content = models.CharField( max_length=100)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return self.title
+
+
+
+    class Meta : 
+        db_table = "comment"
+        verbose_name = "comment"
+        verbose_name_plural = "comments"
+        # get_latest_by = "-created_at" #This specifies the default field(s) to use in your model Manager’s latest() and earliest() methods.
+        ordering = ['-created_at']
