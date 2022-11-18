@@ -14,14 +14,14 @@ In this session, we talk about Generic Views , and how work with them.
 
 ## Text Reference
 
-### Django Project 
+### Django Project
 * [Built-in class-based generic views](https://docs.djangoproject.com/en/4.1/topics/class-based-views/generic-display/)
 
 
-### GeekForGeek 
+### GeekForGeek
 * [views](https://www.geeksforgeeks.org/createview-class-based-views-django/)
 
 
 
 
-  
+  github branch : blog-project

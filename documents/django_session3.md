@@ -19,14 +19,12 @@ In this session, we talk about views and templates, and how work with them.
 
 ## Text Reference
 
-### Django Project 
+### Django Project
 * [views](https://docs.djangoproject.com/en/4.1/topics/http/views/)
 * [templates](https://docs.djangoproject.com/en/4.1/ref/templates/language/)
 
-### GeekForGeek 
+### GeekForGeek
 * [views](https://www.geeksforgeeks.org/views-in-django-python/)
 * [Django Templates](https://www.geeksforgeeks.org/django-templates/)
 
-
-  
-  
+github branch :views-template
