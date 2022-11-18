@@ -16,11 +16,8 @@ please follow below link, OR search about title in google :)
 
 ## Text Reference
 
-### Django Project 
+### Django Project
 * [session](https://docs.djangoproject.com/en/4.1/topics/http/sessions/)
 
-
-
-
-  
-  
+# other link *
+* [Difference cookie and session](https://www.geeksforgeeks.org/difference-between-session-and-cookies/)
