@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
+# from django.contrib.auth.models import User
 # from django.contrib.auth import get_user_model
 
 
@@ -48,6 +49,8 @@ class Post(models.Model):
     featured = models.BooleanField()
     STATUS  = [('en','enable'),('de','disable'),('da','draft')]
     status = models.CharField(max_length=2,choices=STATUS)
+
+ 
 
 
     def __str__(self):

@@ -17,7 +17,9 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
+# from django.contrib.auth import views as auth_views
 
+from .views import main
 
 # from blog import views
 urlpatterns = [
@@ -27,6 +29,10 @@ urlpatterns = [
     # remove two line and add inclue URLconf
     path('blog/',include('blog.urls')),
     path('shop/',include('shop.urls')),
+    path('signup/', main.signup, name='signup'),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('secret/', main.secret_page, name='secret'), #new
+    path('secret2/', main.SecretPage.as_view(), name='secret2'), #new
 ]
 
 if settings.DEBUG:
