@@ -4,33 +4,13 @@
 {% block content %}
 
 
-    {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
-    {% endif %}
-
-    {% if next %}
-        {% if user.is_authenticated %}
-        <p>Your account doesn't have access to this page. To proceed,
-        please login with an account that has access.</p>
-        {% else %}
-        <p>Please login to see this page.</p>
-        {% endif %}
-    {% endif %}
+ 
     <div>
         <form method="post" action="{% url 'login' %}">
             {% csrf_token %}
-            <table style="margin:20;">
-            <tr>
-                {% comment %} <td>{{ form.username.label_tag }}</td> {% endcomment %}
-                <td>{{ form.username|as_crispy_field }}</td>
-            </tr>
-            <tr>
-                {% comment %} <td>{{ form.password.label_tag }}</td> {% endcomment %}
-                <td>{{ form.password|as_crispy_field }}</td>
-            </tr>
-            </table>
-        
-            <input type="submit" value="login">
+
+            {{ form|crispy}}
+                       <input type="submit" value="login">
             <input type="hidden" name="next" value="{{ next }}">
             </form>
     </div>

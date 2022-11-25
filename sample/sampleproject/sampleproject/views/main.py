@@ -44,6 +44,7 @@ def signup(request):
 
 @login_required
 def secret_page(request):
+   
     return render(request, 'secret_page.html')
 
 

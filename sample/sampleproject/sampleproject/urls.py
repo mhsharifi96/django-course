@@ -39,3 +39,4 @@ if settings.DEBUG:
     # static files (images, css, javascript, etc.)
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     # urlpatterns +=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
