@@ -1,7 +1,7 @@
 # Django - session 7
 
-## Django Users and Authentication
-In this session, we talk about Forms in HTTP and HTML, and how work with them.
+## Django Authentication & django Manager
+In this session, we talk about Djnago Users and Authentication, Manager, and how work with them.
 
 `*` title, means this subject is required and you must read it.
 
@@ -22,3 +22,12 @@ please follow below link, OR search about title in google :)
 * [Using the Django authentication system](https://docs.djangoproject.com/en/4.1/topics/auth/default/)
 
 * [Using the Django authentication system](https://docs.djangoproject.com/en/4.1/topics/auth/default/#how-to-log-a-user-in)
+
+### Django Managers*
+* [Managers](https://docs.djangoproject.com/en/4.1/topics/db/managers/)
+* [Manager - geeksforgeeks](https://www.geeksforgeeks.org/built-in-custom-model-managers-in-django/)
+* [What Is Django Model Manager?](https://buildatscale.tech/what-is-django-model-manager/)
+
+## Django Admin *
+* [Django admin site](https://docs.djangoproject.com/en/4.1/ref/contrib/admin/)
+[Django admin site - example](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Admin_site)
