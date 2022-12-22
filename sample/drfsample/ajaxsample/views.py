@@ -26,7 +26,6 @@ def ajaxDesc(request):
 def ajaxSample(request):
     if request.method == 'POST' :
         print(dict(request.POST.items())) # محتویات درخواست مشاهده کنید
-        # print(request.is_ajax())  #print True
         inputText = request.POST['inputText']
         
         polls = Poll.objects.all() #new

@@ -13,7 +13,7 @@
             //alert('hi maktab')
            // $('#btnSection').append('<button class="btn btn-danger">add by envent</button>')
            console.log(this)
-           $($(this).closest('div')).append('testttt')
+           $($(this).closest('div')).append('testttt<br>')
         })
 
         $("#sampleBtn").click(function(){
@@ -44,12 +44,7 @@
                 {   
                     csrfmiddlewaretoken: '{{ csrf_token }}',
                     "inputText": inputText,  // دیتا در فرم وارد شده
-                   // "inputText1":'inputText1',
-                   // "inputText2":'inputText2',
-                   // "inputText3":'inputText3',
-                   // "inputText4":'inputText4',
-                    //"sampleList":[1,2,3,4,5,6], ???
-                    //"sampleObj":JSON.stringify({name:"maktab",test : "test"}),
+                  
 
                 } ,function( data ) {
                        console.log('data : ',data)

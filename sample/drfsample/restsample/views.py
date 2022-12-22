@@ -45,6 +45,7 @@ class PollDetail(APIView):
         # https://stackoverflow.com/questions/3090302/how-do-i-get-the-object-if-it-exists-or-none-if-it-does-not-exist-in-django
         poll = get_object_or_404(Poll, pk=pk)
         data = PollSerializers(poll).data
+        print(PollSerializers(poll).data)
         return Response(data)
 
 
