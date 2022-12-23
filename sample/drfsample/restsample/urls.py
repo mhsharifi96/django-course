@@ -3,7 +3,8 @@ from rest_framework.routers import DefaultRouter
 
 from .views import simpleView,samplepage,pollView,PollDetail,PollListGenerics,\
     PollDetailGenerics,ChoiceList,CreateVote,PollViewSet,GroupPollList,\
-        UserCreate,LoginView,PollCreateGenerics
+        UserCreate,LoginView,PollCreateGenerics,RetrieveDeletePoll,\
+            CreateListItems,RetrieveUpdateDeletePoll
 
 router = DefaultRouter()
 router.register('polls-set', PollViewSet, basename='polls_set')
@@ -24,6 +25,12 @@ urlpatterns = [
     path("polls/<int:pk>/choices/<int:choice_pk>/vote/", CreateVote.as_view(), name= "create_vote"), #step two
     path("users/", UserCreate.as_view(), name="user_create"), #register user
     path("login/", LoginView.as_view(), name="login"), #login user
+    ################
+    path("v-polls/<int:pk>/", RetrieveDeletePoll.as_view(), name="retrieve-delete-polls"), #new
+    path("v-polls-all/<int:pk>/", RetrieveUpdateDeletePoll.as_view()), #new
+    path("v-polls/", CreateListItems.as_view(), name="create-list-polls"), #new
+    
+
     
 ]
 

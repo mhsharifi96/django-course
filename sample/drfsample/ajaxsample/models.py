@@ -22,5 +22,4 @@ class Vote(models.Model):
 
 
 class GroupPoll(models.Model):
-
     polls = models.ManyToManyField(Poll)

@@ -47,12 +47,28 @@ class PollSerializers(serializers.ModelSerializer):
     #     read_only=True,
     #     view_name='polls_detail'
     # )
+
+    
     class Meta :
         model = Poll
         fields = '__all__'
         # fields = ('question','created_by','choices')
-        
 
+
+class SavePollSerializers(serializers.ModelSerializer):
+    class Meta :
+        model = Poll
+        fields = ('question',)
+    
+    def create(self, validated_data):
+        request = self.context.get('request', None)
+        user = request.user
+        validated_data['created_by'] = user
+        return super().create(validated_data)
+    
+
+    
+    
 
 class GroupPollSerializers(serializers.ModelSerializer):
     polls = PollSerializers(many=True,read_only=True)

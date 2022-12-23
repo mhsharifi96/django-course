@@ -16,9 +16,25 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
+from mytokenauth.views import HelloView,UserDetailAPI,RegisterUserAPIView
+from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework_simplejwt import views as jwt_views
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-auth/', include('rest_framework.urls')),
     path('ajax/', include('ajaxsample.urls')),
     path('api/', include('restsample.urls')),
+    
+    #token auth
+    path('hello/', HelloView.as_view(), name='hello'), #new
+    path("get-details/",UserDetailAPI.as_view()), #new
+    path('register/',RegisterUserAPIView.as_view()), #new
+    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),#new
+    # jwt token
+    path('jwt-token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),#new
+    path('jwt-token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),#new
+
 ]
+

@@ -8,7 +8,8 @@ from django.contrib.auth import authenticate #new
 
 from ajaxsample.models import Poll,Choice,Vote,GroupPoll
 
-from .serializers import PollSerializers,ChoiceSerializer,VoteSerializer,GroupPollSerializers,UserSerializer #new
+from .serializers import PollSerializers,ChoiceSerializer,VoteSerializer,\
+    GroupPollSerializers,UserSerializer,SavePollSerializers #new
 
 
 from rest_framework.permissions import IsAuthenticated
@@ -133,3 +134,83 @@ class LoginView(APIView):
 
 
 
+############################
+
+# views
+from rest_framework.generics import GenericAPIView
+from rest_framework import mixins
+
+class RetrieveDeletePoll(GenericAPIView):
+
+    serializer_class = PollSerializers
+    queryset = Poll.objects.all()
+
+    def get(self, request, *args, **kwargs):
+        instance = self.get_object()
+        serializer = self.get_serializer(instance)
+        return Response(serializer.data)
+
+    def delete(self, request, *args, **kwargs):
+        instance = self.get_object()
+        instance.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+class CreateListItems(mixins.ListModelMixin,
+                        mixins.CreateModelMixin,
+                        mixins.UpdateModelMixin,
+                        GenericAPIView):
+
+    def get_serializer_class(self):
+        print(self.request.method)
+        
+        if self.request.method in ['POST','post'] :
+            return SavePollSerializers
+        else : 
+            return PollSerializers
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context.update({"request": self.request})
+        return context
+
+    # serializer_class = PollSerializers
+    queryset = Poll.objects.all()
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+    
+
+
+
+
+class RetrieveUpdateDeletePoll(
+    mixins.RetrieveModelMixin,
+    mixins.UpdateModelMixin,
+    mixins.DestroyModelMixin,
+    GenericAPIView
+):
+    def get_serializer_class(self):
+        
+        if self.request.method in ['PUT'] :
+            return SavePollSerializers
+        else : 
+            return PollSerializers
+
+    queryset = Poll.objects.all()
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def patch(self, request, *args, **kwargs):
+        return self.partial_update(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
