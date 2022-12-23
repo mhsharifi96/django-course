@@ -134,7 +134,7 @@ class LoginView(APIView):
 
 
 
-############################
+##############** NEW **##############
 
 # views
 from rest_framework.generics import GenericAPIView
@@ -159,7 +159,6 @@ class RetrieveDeletePoll(GenericAPIView):
 
 class CreateListItems(mixins.ListModelMixin,
                         mixins.CreateModelMixin,
-                        mixins.UpdateModelMixin,
                         GenericAPIView):
 
     def get_serializer_class(self):
@@ -179,6 +178,7 @@ class CreateListItems(mixins.ListModelMixin,
     queryset = Poll.objects.all()
 
     def get(self, request, *args, **kwargs):
+
         return self.list(request, *args, **kwargs)
 
     def post(self, request, *args, **kwargs):
@@ -200,6 +200,7 @@ class RetrieveUpdateDeletePoll(
             return SavePollSerializers
         else : 
             return PollSerializers
+    # serializer_class = PollSerializers
 
     queryset = Poll.objects.all()
 
